@@ -189,6 +189,8 @@ class TrainEval:
             train_loss = self.train_fn(i)
             val_loss = self.eval_fn(i)
 
+            print(f'Epoch {i}, train_loss = {train_loss}, val_loss = {val_loss}')
+
             if val_loss < best_valid_loss:
                 torch.save(self.model.state_dict(), "checkpoints/best-weights.pt")
                 print("Saved Best Weights")
